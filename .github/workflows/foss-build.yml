@@ -10,6 +10,10 @@ name: FOSS Build
 on:
   workflow_dispatch:
     inputs:
+      tag:
+        description: 'Tag to attach the APKs to (leave empty to use the latest version tag)'
+        required: false
+        type: string
       attach_to_release:
         description: 'Attach the built APKs to the matching GitHub Release'
         type: boolean
@@ -52,11 +56,24 @@ jobs:
       - name: Resolve tag
         id: tag
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            echo "name=$(git describe --tags --abbrev=0 2>/dev/null || echo "manual-$(date +%Y%m%d)")" >> "$GITHUB_OUTPUT"
+          set -e
+          if [ -n "${{ inputs.tag }}" ]; then
+            # Explicit override from the manual trigger.
+            echo "name=${{ inputs.tag }}" >> "$GITHUB_OUTPUT"
+          elif [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            # `git describe` is not reliable here: earlier releases were pushed from
+            # orphan snapshot branches, so the tag is not an ancestor of HEAD.
+            # Pick the highest version tag instead of falling back to a date string.
+            LATEST=$(git tag --sort=-v:refname | head -n 1)
+            if [ -z "$LATEST" ]; then
+              echo "::error::No tag found and no explicit tag input provided"
+              exit 1
+            fi
+            echo "name=${LATEST}" >> "$GITHUB_OUTPUT"
           else
             echo "name=${GITHUB_REF#refs/tags/}" >> "$GITHUB_OUTPUT"
           fi
+          echo "resolved tag: $(grep '^name=' "$GITHUB_OUTPUT" | tail -n 1)"
 
       - name: Decode signing keystore
         run: echo "$SIGNING_KEY" | base64 -d > "${{ runner.temp }}/sumika.keystore"
