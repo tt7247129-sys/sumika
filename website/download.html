@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Download Sumika — Android manga reader</title>
+<meta name="description" content="Download the Sumika APK. Free, open source, no ads, no tracking. Arm64 Android.">
+<link rel="canonical" href="https://sumikareader.pages.dev/download.html">
+<meta name="theme-color" content="#0E1A1F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230E1A1F'/%3E%3Cpath d='M26 30l20 6v40l-20-6z' fill='%23F4EDE1'/%3E%3Cpath d='M74 30l-20 6v40l20-6z' fill='%23F4EDE1'/%3E%3Cpath d='M48 36h4v40h-4z' fill='%23C9A227'/%3E%3C/svg%3E">
+<style>
+:root{--ink:#0E1A1F;--ink-2:#12242B;--paper:#F4EDE1;--gold:#C9A227;--gold-bright:#E9CE8C;--mint:#8FD6C7;--rule:rgba(244,237,225,.12);--max:760px}
+*{box-sizing:border-box}body{margin:0;background:var(--ink);color:var(--paper);font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.wrap{max-width:var(--max);margin:0 auto;padding:48px 22px 96px}a{color:var(--mint)}h1{font-size:2.4rem;margin:0 0 6px;letter-spacing:-.025em}h2{font-size:1.3rem;margin:36px 0 12px;color:var(--gold-bright)}p,li{color:#d8d3c9}.lead{font-size:1.08rem;color:#b8c4c0;margin-bottom:28px}
+.badge{display:inline-block;border:1px solid var(--rule);border-radius:999px;padding:5px 13px;font-size:.8rem;color:var(--mint);margin:0 6px 6px 0}
+.dl-btn{display:block;text-align:center;background:var(--gold);color:#20180A;border-radius:14px;padding:18px 24px;font-size:1.15rem;font-weight:700;text-decoration:none;margin:22px 0 8px}
+.dl-btn small{display:block;font-weight:500;color:rgba(32,24,10,.68);font-size:.82rem;margin-top:4px}
+.dl-btn:hover{background:#D8B339}
+.card{border:1px solid var(--rule);background:var(--ink-2);border-radius:14px;padding:18px 22px;margin:16px 0}
+code{background:#1d3138;padding:2px 7px;border-radius:4px;color:var(--mint);word-break:break-all;font-size:.85rem}
+.muted{color:#93a19d;font-size:.9rem}nav{margin-top:44px;padding-top:20px;border-top:1px solid var(--rule)}nav a{margin-right:18px}
+.alert{border-left:3px solid var(--gold);padding-left:16px;color:#c9c4ba}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Download Sumika</h1>
+<p class="lead">The free, open-source manga reader. No ads, no tracking, no accounts.</p>
+<span class="badge">v1.0.0</span><span class="badge">arm64-v8a</span><span class="badge">Android 8+</span><span class="badge">63 MB</span>
+
+<a class="dl-btn" id="apkLink" data-cdn="https://pub-768cea40a5e34d79955218c76f0f3aa9.r2.dev/sumika-arm64-v8a-release.apk" href="https://pub-768cea40a5e34d79955218c76f0f3aa9.r2.dev/sumika-arm64-v8a-release.apk" download="sumika-arm64-v8a-release.apk">
+  Download APK (arm64-v8a)
+  <small id="dlSub">v1.0.0 · 63 MB · CDN download</small>
+</a>
+<p class="muted">Download is served from our global CDN. If it does not start, use the <a href="https://github.com/tt7247129-sys/sumika/releases/latest">GitHub Releases page</a>.</p>
+
+<h2>Verify your download</h2>
+<div class="card">
+<p class="muted">SHA-256 of the official APK:</p>
+<code>079fe4b2a49c9e7adb2b16bf88cc7138e6830b0f17c209e7b51d2c3766cfe4c7</code>
+<p class="muted" style="margin-bottom:0">On Android: <code>sha256sum sumika-arm64-v8a-release.apk</code> (or any hash tool). The value must match exactly.</p>
+</div>
+
+<h2>Install</h2>
+<ol>
+<li>Open the downloaded <code>.apk</code> file.</li>
+<li>Allow <strong>Install unknown apps</strong> for your browser/file manager when Android asks.</li>
+<li>Launch Sumika and pick a storage folder — that's it.</li>
+</ol>
+<p class="alert">Sumika contains no books or sources by default. Add community sources or drop local manga files into your folder to start reading. See the <a href="/guide">quick start guide</a>.</p>
+
+<h2>Privacy &amp; source</h2>
+<p><a href="/privacy">Privacy policy</a> · <a href="https://github.com/tt7247129-sys/sumika">Source code (GPL-3.0)</a> · <a href="/guide">Getting started</a></p>
+
+<nav><a href="/">← Home</a><a href="/guide">Quick start</a><a href="/privacy">Privacy</a></nav>
+</div>
+
+<script>
+// If a direct CDN URL is configured, prefer it for a faster download.
+// Set data-cdn on #apkLink to the direct APK URL when available.
+var link = document.getElementById('apkLink');
+var cdn = link.getAttribute('data-cdn');
+if (cdn) {
+  link.href = cdn;
+  document.getElementById('dlSub').textContent = 'v1.0.0 · 63 MB · CDN download';
+}
+</script>
+</body>
+</html>
