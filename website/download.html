@@ -30,15 +30,28 @@ code{background:#1d3138;padding:2px 7px;border-radius:4px;color:var(--mint);word
 
 <a class="dl-btn" id="apkLink" data-cdn="https://pub-768cea40a5e34d79955218c76f0f3aa9.r2.dev/sumika-arm64-v8a-release.apk" href="https://pub-768cea40a5e34d79955218c76f0f3aa9.r2.dev/sumika-arm64-v8a-release.apk" download="sumika-arm64-v8a-release.apk">
   Download APK (arm64-v8a)
-  <small id="dlSub">v1.0.0 · 63 MB · CDN download</small>
+  <small id="dlSub">v1.0.0 · 63 MB · CDN download · includes on-device translation</small>
 </a>
-<p class="muted">Download is served from our global CDN. If it does not start, use the <a href="https://github.com/tt7247129-sys/sumika/releases/latest">GitHub Releases page</a>.</p>
+<p class="muted">Served from our global CDN. If it does not start, use the
+  <a href="https://github.com/tt7247129-sys/sumika/releases/latest">GitHub Releases page</a>.</p>
+
+<h2>Which build?</h2>
+<div class="card">
+<p style="margin-top:0"><strong>Standard</strong> — 63 MB. Adds on-device manga translation
+  (ML Kit OCR + translate). First use downloads a model; your images never leave the phone.</p>
+<p style="margin-bottom:0"><strong>FOSS</strong> — 35 MB, no proprietary blobs. Everything else is
+  identical; translation is omitted so the APK contains only free software.
+  <a href="https://github.com/tt7247129-sys/sumika/releases/download/v1.0.0/sumika-foss-arm64-v8a-v1.0.0.apk">Download FOSS build (arm64-v8a)</a>
+  · <a href="https://github.com/tt7247129-sys/sumika/releases/latest">all ABIs</a></p>
+</div>
 
 <h2>Verify your download</h2>
 <div class="card">
-<p class="muted">SHA-256 of the official APK:</p>
+<p class="muted" style="margin-top:0">SHA-256, standard build (<code>sumika-arm64-v8a-release.apk</code>):</p>
 <code>079fe4b2a49c9e7adb2b16bf88cc7138e6830b0f17c209e7b51d2c3766cfe4c7</code>
-<p class="muted" style="margin-bottom:0">On Android: <code>sha256sum sumika-arm64-v8a-release.apk</code> (or any hash tool). The value must match exactly.</p>
+<p class="muted">SHA-256, FOSS build (<code>sumika-foss-arm64-v8a-v1.0.0.apk</code>):</p>
+<code>b264202e9d23685b9805831551206879f8eade1c54a481a19370597ae321a567</code>
+<p class="muted" style="margin-bottom:0">On Android: <code>sha256sum &lt;file&gt;</code> (or any hash tool). The value must match exactly.</p>
 </div>
 
 <h2>Install</h2>
