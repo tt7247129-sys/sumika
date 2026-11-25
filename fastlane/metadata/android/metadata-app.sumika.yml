@@ -1,0 +1,43 @@
+Categories:
+  - Reading
+  - Internet
+License: GPL-3.0-or-later
+AuthorName: Sumika contributors
+SourceCode: https://github.com/tt7247129-sys/sumika
+IssueTracker: https://github.com/tt7247129-sys/sumika/issues
+Changelog: https://github.com/tt7247129-sys/sumika/releases
+WebSite: https://sumikareader.pages.dev
+
+Summary: Manga reader with no ads or tracking
+Description: |
+  Sumika is a free and open-source manga, comic and webtoon reader for
+  Android. It has no ads, no subscription, no account and no tracking SDK.
+
+  A built-in Privacy Ledger lists every network host the app contacts, with
+  request counts and timestamps, exportable as CSV, so the no-tracking claim
+  can be audited instead of trusted.
+
+  It ships no catalogue and no bundled sources: you bring your own community
+  sources or your own local files. Features include offline-first downloads
+  with a storage budget, encrypted local backup, phone-to-phone migration over
+  your own Wi-Fi, 50+ UI languages with full RTL support, and a parental
+  control mode.
+
+RepoType: git
+Repo: https://github.com/tt7247129-sys/sumika
+
+Builds:
+  - versionName: 1.0.0
+    versionCode: 1
+    commit: v1.0.0
+    gradle:
+      - assembleFoss
+    gradleprops:
+      - dist=foss
+    output: app/build/outputs/apk/foss/app-foss-universal-release.apk
+    timeout: 90
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^v[0-9.]+
+CurrentVersion: 1.0.0
+CurrentVersionCode: 1

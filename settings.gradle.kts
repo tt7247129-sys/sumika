@@ -20,7 +20,6 @@ dependencyResolutionManagement {
 
     @Suppress("UnstableApiUsage")
     repositories {
-        mavenLocal()
         google()
         mavenCentral()
         maven(url = "https://www.jitpack.io")
@@ -29,7 +28,7 @@ dependencyResolutionManagement {
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
-rootProject.name = "Mihon"
+rootProject.name = "Sumika"
 include(":app")
 include(":baseline-profile")
 include(":core-metadata")

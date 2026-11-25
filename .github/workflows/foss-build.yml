@@ -1,0 +1,106 @@
+name: FOSS Build
+
+# Builds the FOSS variant (no proprietary ML Kit / on-device translation).
+# Purpose: produce an installable, F-Droid-compatible APK for IzzyOnDroid and
+# for users who refuse proprietary blobs. F-Droid itself builds from source and
+# does not need this artifact.
+#
+# Trigger manually from the Actions tab, or automatically on a version tag.
+
+on:
+  workflow_dispatch:
+    inputs:
+      attach_to_release:
+        description: 'Attach the built APKs to the matching GitHub Release'
+        type: boolean
+        default: true
+  push:
+    tags:
+      - 'v*'
+
+concurrency:
+  group: foss-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build_foss:
+    if: github.repository == 'tt7247129-sys/sumika'
+    name: Build FOSS APK
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: 17
+          distribution: temurin
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Resolve tag
+        id: tag
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "name=$(git describe --tags --abbrev=0 2>/dev/null || echo "manual-$(date +%Y%m%d)")" >> "$GITHUB_OUTPUT"
+          else
+            echo "name=${GITHUB_REF#refs/tags/}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Decode signing keystore
+        run: echo "$SIGNING_KEY" | base64 -d > "${{ runner.temp }}/sumika.keystore"
+        env:
+          SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
+
+      - name: Build FOSS variant
+        # -Pdist=foss sets includeTranslate=false, which removes the Google ML Kit
+        # (proprietary) dependency graph entirely. buildType `foss` also appends the
+        # .foss applicationId suffix so it can coexist with the standard build.
+        run: ./gradlew assembleFoss -Pdist=foss
+        env:
+          MIHON_GITHUB_RELEASE: true
+          storeFile: ${{ runner.temp }}/sumika.keystore
+          storePassword: ${{ secrets.KEY_STORE_PASSWORD }}
+          keyAlias: ${{ secrets.ALIAS }}
+          keyPassword: ${{ secrets.KEY_PASSWORD }}
+
+      - name: Rename APKs
+        run: |
+          set -e
+          TAG="${{ steps.tag.outputs.name }}"
+          SRC=app/build/outputs/apk/foss
+          ls -l "$SRC"
+          for abi in universal arm64-v8a armeabi-v7a x86 x86_64; do
+            f="$SRC/app-foss-${abi}-release.apk"
+            if [ -f "$f" ]; then
+              mv "$f" "sumika-foss-${abi}-${TAG}.apk"
+            fi
+          done
+          ls -l sumika-foss-*.apk
+
+      - name: Generate checksums
+        run: |
+          for f in sumika-foss-*.apk; do shasum -a 256 "$f" >> SHA256SUMS-foss.txt; done
+          cat SHA256SUMS-foss.txt
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: sumika-foss
+          path: |
+            sumika-foss-*.apk
+            SHA256SUMS-foss.txt
+
+      - name: Attach to release
+        if: github.event_name == 'push' || inputs.attach_to_release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.tag.outputs.name }}
+          files: |
+            sumika-foss-*.apk
+            SHA256SUMS-foss.txt
+          fail_on_unmatched_files: false

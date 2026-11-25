@@ -48,6 +48,9 @@ jobs:
       - name: Build
         run: ./gradlew assembleRelease -Pdist=github
         env:
+          # Required: without this the signingConfigs branch in app/build.gradle.kts is skipped
+          # and CI silently signs with a throwaway debug keystore.
+          MIHON_GITHUB_RELEASE: true
           storeFile: ${{ runner.temp }}/sumika.keystore
           storePassword: ${{ secrets.KEY_STORE_PASSWORD }}
           keyAlias: ${{ secrets.ALIAS }}
