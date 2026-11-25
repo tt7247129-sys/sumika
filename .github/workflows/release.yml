@@ -1,0 +1,114 @@
+name: Release
+on:
+  push:
+    tags:
+      - v*
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  get_tag:
+    if: github.repository == 'tt7247129-sys/sumika'
+    name: Extract tag name
+    runs-on: ubuntu-latest
+    outputs:
+      tag: ${{ steps.extract.outputs.tag }}
+
+    steps:
+      - name: Get tag name
+        id: extract
+        run: echo "tag=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_OUTPUT
+
+  build:
+    if: github.repository == 'tt7247129-sys/sumika'
+    name: Build
+    runs-on: ubuntu-latest
+    needs: get_tag
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: 17
+          distribution: temurin
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Decode signing keystore
+        run: echo "$SIGNING_KEY" | base64 -d > "${{ runner.temp }}/sumika.keystore"
+        env:
+          SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
+
+      - name: Build
+        run: ./gradlew assembleRelease -Pdist=github
+        env:
+          storeFile: ${{ runner.temp }}/sumika.keystore
+          storePassword: ${{ secrets.KEY_STORE_PASSWORD }}
+          keyAlias: ${{ secrets.ALIAS }}
+          keyPassword: ${{ secrets.KEY_PASSWORD }}
+
+      - name: Rename APK
+        run: |
+          set -e
+
+          mv app/build/outputs/apk/release/app-universal-release.apk sumika-${{ needs.get_tag.outputs.tag }}.apk
+          mv app/build/outputs/apk/release/app-arm64-v8a-release.apk sumika-arm64-v8a-${{ needs.get_tag.outputs.tag }}.apk
+          mv app/build/outputs/apk/release/app-armeabi-v7a-release.apk sumika-armeabi-v7a-${{ needs.get_tag.outputs.tag }}.apk
+          mv app/build/outputs/apk/release/app-x86-release.apk sumika-x86-${{ needs.get_tag.outputs.tag }}.apk
+          mv app/build/outputs/apk/release/app-x86_64-release.apk sumika-x86_64-${{ needs.get_tag.outputs.tag }}.apk
+
+      - name: Generate checksums
+        run: |
+          for f in sumika-*.apk; do shasum -a 256 "$f" >> SHA256SUMS.txt; done
+          cat SHA256SUMS.txt
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: sumika
+          path: |
+            sumika-*.apk
+            SHA256SUMS.txt
+
+  release:
+    if: github.repository == 'tt7247129-sys/sumika'
+    name: Create GitHub Release
+    runs-on: ubuntu-latest
+    needs: [get_tag, build]
+
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          merge-multiple: true
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ needs.get_tag.outputs.tag }}
+          name: Sumika ${{ needs.get_tag.outputs.tag }}
+          body: |
+            Free, open-source manga reader. No ads. No tracking. No account.
+
+            **Install:** download `sumika-${{ needs.get_tag.outputs.tag }}.apk` (universal) and allow installs from this source. Requires Android 8+ (API 26).
+
+            **Verify:** SHA-256 checksums are in `SHA256SUMS.txt`. The tag builds reproducibly with `./gradlew assembleRelease -Pdist=github`.
+
+            **Audit us:** after installing, open *Settings → Privacy Ledger* to see every network host this app contacts — and export the list yourself.
+
+            Sumika is a GPL-3.0 fork of [Mihon](https://github.com/mihonapp/mihon). Thanks to the upstream team.
+          files: |
+            sumika-${{ needs.get_tag.outputs.tag }}.apk
+            sumika-arm64-v8a-${{ needs.get_tag.outputs.tag }}.apk
+            sumika-armeabi-v7a-${{ needs.get_tag.outputs.tag }}.apk
+            sumika-x86-${{ needs.get_tag.outputs.tag }}.apk
+            sumika-x86_64-${{ needs.get_tag.outputs.tag }}.apk
+            SHA256SUMS.txt
+          draft: true
+          prerelease: false

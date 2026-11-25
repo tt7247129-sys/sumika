@@ -1,0 +1,51 @@
+Sumika
+Copyright (C) 2026 Sumika contributors
+
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later
+version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with
+this program. If not, see <https://www.gnu.org/licenses/>.
+
+================================================================================
+UPSTREAM ATTRIBUTION
+================================================================================
+
+Sumika is a fork of Mihon (https://github.com/mihonapp/mihon), which is itself
+the continuation of Tachiyomi. The following applies to all code inherited from
+those projects:
+
+  Mihon
+  Copyright (C) Mihon contributors
+  Licensed under the Apache License, Version 2.0
+  Full text: LICENSE-APACHE-2.0.txt
+
+  Tachiyomi
+  Copyright (C) Tachiyomi contributors
+  Licensed under the Apache License, Version 2.0
+
+Redistribution of the inherited Apache-2.0 code inside this GPL-3.0 work is
+permitted by the one-way compatibility of Apache-2.0 into GPL-3.0. The upstream
+copyright notices, the Apache-2.0 license text, and this attribution file are
+kept intact as required by section 4 of the Apache License.
+
+Translations under i18n/ originate from Mihon's translators and remain under
+their respective upstream licensing.
+
+Sumika's own additions (the Privacy Ledger, branding, and any files created after
+the fork point) are licensed under GPL-3.0 only.
+
+================================================================================
+WHAT THIS PROJECT DOES NOT CONTAIN
+================================================================================
+
+Sumika ships no advertising SDK, no analytics SDK, no crash-reporting SDK, and no
+in-app purchase or subscription code. Telemetry is hard-disabled at the build
+level (see gradle/build-logic/src/main/kotlin/mihon/gradle/BuildConfig.kt) and
+cannot be re-enabled with a build flag.

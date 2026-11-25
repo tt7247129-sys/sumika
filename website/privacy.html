@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy policy — Sumika</title>
+<meta name="description" content="Sumika's privacy policy: no advertising SDK, no analytics, no crash reporting, no data sale. Everything is stored on your device and can be verified against the source code.">
+<link rel="canonical" href="https://sumikareader.pages.dev/privacy.html">
+<meta name="theme-color" content="#0E1A1F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230E1A1F'/%3E%3Cpath d='M26 30l20 6v40l-20-6z' fill='%23F4EDE1'/%3E%3Cpath d='M74 30l-20 6v40l20-6z' fill='%23F4EDE1'/%3E%3Cpath d='M48 36h4v40h-4z' fill='%23C9A227'/%3E%3C/svg%3E">
+<style>
+  :root{--ink:#0E1A1F;--ink-2:#12242B;--paper:#F4EDE1;--paper-dim:#C4C8C4;--paper-faint:#8C9490;
+    --gold:#C9A227;--gold-bright:#E9CE8C;--mint:#8FD6C7;--rule:rgba(244,237,225,.12);--max:760px}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--ink);color:var(--paper);
+    font:16px/1.72 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans SC",sans-serif;
+    -webkit-font-smoothing:antialiased}
+  a{color:var(--gold-bright);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+  header{border-bottom:1px solid var(--rule);background:rgba(14,26,31,.9)}
+  .nav{display:flex;align-items:center;gap:12px;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:650}
+  .brand svg{width:26px;height:26px}
+  .back{margin-left:auto;font-size:14px;color:var(--paper-dim)}
+  main{padding:56px 0 80px}
+  h1{font-size:clamp(28px,4vw,40px);letter-spacing:-.02em;margin:0 0 10px}
+  .meta{color:var(--paper-faint);font-size:14px;margin-bottom:40px}
+  h2{font-size:19px;letter-spacing:-.01em;margin:44px 0 12px;padding-top:8px}
+  p,li{color:var(--paper-dim)}
+  strong{color:var(--paper)}
+  ul{padding-left:20px}
+  li{margin:6px 0}
+  .card{border:1px solid var(--rule);background:var(--ink-2);border-radius:14px;padding:20px 22px;margin:26px 0}
+  .card p{margin:0;font-size:15px}
+  .tick{color:var(--mint);font-weight:700}
+  table{border-collapse:collapse;width:100%;font-size:14.5px;margin:8px 0 4px}
+  th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}
+  th{color:var(--paper-faint);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+  code{background:rgba(244,237,225,.08);padding:1px 6px;border-radius:5px;font-size:13.5px}
+  footer{border-top:1px solid var(--rule);padding:36px 0 56px;color:var(--paper-faint);font-size:13.5px}
+  footer a{color:var(--paper-dim)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <rect width="100" height="100" rx="22" fill="#16303A"/>
+        <path d="M26 30l20 6v40l-20-6z" fill="#F4EDE1"/>
+        <path d="M74 30l-20 6v40l20-6z" fill="#F4EDE1"/>
+        <path d="M48 36h4v40h-4z" fill="#C9A227"/>
+      </svg>
+      Sumika
+    </a>
+    <a class="back" href="index.html">← Back to site</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <h1>Privacy policy</h1>
+    <p class="meta">Applies to the Sumika Android application (<code>app.sumika</code>) and to sumikareader.pages.dev. Last updated 24 November 2026.</p>
+
+    <div class="card">
+      <p><span class="tick">In one sentence:</span> Sumika has no advertising SDK, no analytics SDK, no crash-reporting SDK and no account system, so there is nothing to collect. Your library, reading history and settings stay on your device, and we publish the source you can use to check that claim.</p>
+    </div>
+
+    <h2>1. What we collect</h2>
+    <p><strong>Nothing.</strong> The application does not transmit personal data to us or to any third party. There is no account, no sign-in, no e-mail field, and no server-side profile. We do not sell, rent, trade or share personal data, because we never receive any.</p>
+
+    <h2>2. What is stored on your device</h2>
+    <table>
+      <thead><tr><th>Data</th><th>Where</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Library entries, categories, reading history</td><td>Local app database (SQLite)</td><td>Core functionality</td></tr>
+        <tr><td>Downloaded chapters</td><td>A folder you choose on internal or external storage</td><td>Offline reading; the files are yours to move or back up</td></tr>
+        <tr><td>Preferences and theme</td><td>Local app preferences</td><td>Remembering your settings</td></tr>
+        <tr><td>Tracker credentials (optional)</td><td>Local app storage</td><td>Only if you connect MyAnimeList, AniList, Kitsu, Shikimori or Bangumi</td></tr>
+      </tbody>
+    </table>
+    <p>All of it is removed when you uninstall the app or clear its data. None of it is uploaded anywhere by Sumika.</p>
+
+    <h2>3. Network connections the app makes</h2>
+    <p>Sumika is a reader, not a service: it only goes online because <em>you</em> asked it to. Depending on what you use, it may contact:</p>
+    <ul>
+      <li>Sources or file servers you added yourself, or that an extension you installed talks to;</li>
+      <li>Extension repositories you configured in order to install extensions;</li>
+      <li>The tracking service you chose to connect, if any;</li>
+      <li>GitHub, only when you tap "check for updates";</li>
+      <li>Google's model servers, only the first time you use the optional on-page translation feature with a given language — that downloads the OCR/translation model to your device. All recognition and translation afterwards runs fully offline; your page images and text never leave the device.</li>
+    </ul>
+    <p>These requests carry only what the protocol requires. Sumika adds no advertising identifiers, no device fingerprints and no analytics parameters.</p>
+
+    <h2>4. Verify it — the Privacy Ledger</h2>
+    <p>Every domain the app contacts is recorded <strong>locally</strong> and shown in <em>Settings → Privacy Ledger</em>, with request counts. The screen can export a plain-text report for you to inspect, post in an issue, or compare against a network capture. The ledger itself never leaves your device.</p>
+    <p>You can also verify at the source level: the network stack lives in <a href="https://github.com/tt7247129-sys/sumika" target="_blank" rel="noopener">github.com/tt7247129-sys/sumika</a>, and telemetry is hard-disabled in <code>gradle/build-logic/src/main/kotlin/mihon/gradle/BuildConfig.kt</code> — it cannot be switched on with a build flag.</p>
+
+    <h2>5. Permissions and why they exist</h2>
+    <ul>
+      <li><strong>Internet / network state</strong> — fetching pages, covers and extension metadata.</li>
+      <li><strong>Storage access</strong> — only for the folder you pick for downloads and backups.</li>
+      <li><strong>Notifications</strong> — only if you enable library update or download notifications.</li>
+      <li><strong>Foreground service</strong> — to keep downloads and library updates running while the screen is off.</li>
+    </ul>
+    <p>Sumika does not request location, contacts, camera, microphone or phone-state permissions.</p>
+
+    <h2>6. Children</h2>
+    <p>Sumika is a general-purpose reader with no content of its own and no data collection. It is not directed at children, and because it collects nothing, it holds no data about any age group.</p>
+
+    <h2>7. Content and third-party sources</h2>
+    <p>Sumika ships without a catalogue or bundled sources. Content you read comes from files you own or from sources you add. We do not operate, host or endorse those sources, and their privacy practices are theirs, not ours. If a source tracks you, the Privacy Ledger will show the domain it uses — that is exactly what it is for.</p>
+
+    <h2>8. Changes to this policy</h2>
+    <p>If this policy changes, the change appears in the public commit history of this page, with the date above updated. Because the app collects nothing, there are no historical datasets to migrate or delete.</p>
+
+    <h2>9. Contact</h2>
+    <p>Questions, corrections or a request to inspect the code: open an issue at <a href="https://github.com/tt7247129-sys/sumika/issues" target="_blank" rel="noopener">github.com/tt7247129-sys/sumika/issues</a>. Public is better than private for this kind of question.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    © 2026 Sumika contributors · GPL-3.0 ·
+    <a href="index.html">Home</a> ·
+    <a href="https://github.com/tt7247129-sys/sumika" target="_blank" rel="noopener">Source</a> ·
+    <a href="https://github.com/mihonapp/mihon" target="_blank" rel="noopener">Built on Mihon</a>
+  </div>
+</footer>
+</body>
+</html>
