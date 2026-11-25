@@ -30,11 +30,15 @@ Builds:
   - versionName: 1.0.0
     versionCode: 1
     commit: v1.0.0
+    # assembleRelease + dist=foss keeps the package id app.sumika (matching this
+    # metadata file name) while dropping the proprietary ML Kit dependency.
+    # Using the `foss` buildType instead would yield app.sumika.foss, which does
+    # not match this file's package id and would be rejected by F-Droid.
     gradle:
-      - assembleFoss
+      - assembleRelease
     gradleprops:
       - dist=foss
-    output: app/build/outputs/apk/foss/app-foss-universal-release.apk
+    output: app/build/outputs/apk/release/app-universal-release.apk
     timeout: 90
 
 AutoUpdateMode: Version

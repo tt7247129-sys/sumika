@@ -63,10 +63,10 @@ Builds:
     versionCode: 1
     commit: v1.0.0
     gradle:
-      - assembleFoss
+      - assembleRelease
     gradleprops:
       - dist=foss
-    output: app/build/outputs/apk/foss/app-foss-universal-release.apk
+    output: app/build/outputs/apk/release/app-universal-release.apk
     timeout: 90
 
 AutoUpdateMode: Version
@@ -79,15 +79,20 @@ CurrentVersionCode: 1
 
 - **没有 `subdir`**：`settings.gradle.kts` 在仓库根目录，Gradle 项目根就是仓库根。
   写成 `subdir: app`（旧模板的错误）会让 F-Droid 在 `app/` 下找 Gradle 项目而失败。
-- **`gradle: - assembleFoss`**：`foss` 是 **buildType**，不是 flavor。直接给完整任务名
-  `assembleFoss` 最稳妥；F-Droid 的 flavor 拼接逻辑（`assemble<Flavor>Release`）在此不适用。
+- **用 `assembleRelease` 而非 `assembleFoss`**：F-Droid 要求 metadata 文件名等于 APK 包名。
+  本文件是 `app.sumika.yml`，因此包名必须是 `app.sumika`。
+  `foss` **buildType** 带 `applicationIdSuffix = ".foss"`，产物包名是 `app.sumika.foss`，会与本
+  metadata 不匹配而被拒。因此 F-Droid 侧用 `release` buildType + `dist=foss`：
+  包名保持 `app.sumika`，同时剔除 ML Kit。
 - **`gradleprops: - dist=foss`**：这是剔除 ML Kit 专有依赖的开关
   （`gradle/build-logic/.../BuildConfig.kt` 中 `includeTranslate = distribution != FOSS`）。
   缺这一行会引入 Google ML Kit 专有二进制，被 F-Droid 以 NonFreeDep 拒绝。
-- **`output`**：buildType 为 `foss` 时 ABI split 产物在 `apk/foss/`，universal 版文件名带 `-foss-`。
-  若实际路径不符，用 `fdroid build -l -v app.sumika` 查看后再改。
-- **签名**：`foss` buildType 沿用了 `signingConfig = debug.signingConfig`，产物是已签名的。
-  F-Droid 会用其自有密钥重签，通常可接受；若构建机报签名相关错误，在 metadata 中加
+- **`output`**：`release` buildType 且 ABI split 开启时，universal 产物为
+  `app/build/outputs/apk/release/app-universal-release.apk`（本地构建已确认存在）。
+  注意 buildType 变体的命名规律是 `app-{abi}-{buildType}.apk`——例如 `foss` buildType 产出
+  `app-arm64-v8a-foss.apk`（**没有** `-release` 段），CI 日志已实测确认。
+- **签名**：`release` / `foss` buildType 都沿用 `signingConfig = debug.signingConfig`。F-Droid
+  会用其自有密钥重签，通常可接受；若构建机报签名错误，加
   `prebuild: sed -i '/signingConfig = debug.signingConfig/d' app/build.gradle.kts` 去掉签名配置。
 
 ### 1.3 提交步骤
@@ -112,14 +117,32 @@ IzzyOnDroid 从 GitHub Release 抓取 APK，需要 Release 中存在**不含专�
 
 ### 2.1 构建 FOSS APK
 
+两种方式，任选：
+
+**A. GitHub Actions（推荐，本机资源紧张时）**
+
+手动触发 `FOSS Build` workflow（Actions 标签页 → FOSS Build → Run workflow）。
+实测首次构建约 **7 分钟**，产出 5 个 ABI 的 FOSS APK，并自动附加到对应 Release：
+
+| ABI | 大小 |
+|---|---|
+| arm64-v8a | 34.9 MB |
+| armeabi-v7a | 29.2 MB |
+| x86 | 38.1 MB |
+| x86_64 | 38.0 MB |
+| universal | 98.1 MB |
+
+对比标准版（含 ML Kit 翻译）的 arm64 63 MB，FOSS 版瘦身约 **45%**。
+
+**B. 本地构建**
+
 ```bash
 export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"
 ./gradlew :app:assembleFoss -Pdist=foss
 ```
 
-产物：`app/build/outputs/apk/foss/app-foss-*-release.apk`
-
-> 注意：本机内存/磁盘紧张时该任务曾因 OOM 卡死。建议 `-Xmx3g` 并关闭其它 Gradle daemon。
+产物命名规律为 `app-{abi}-foss.apk`（**注意没有 `-release` 段**），位于
+`app/build/outputs/apk/foss/`。
 
 ### 2.2 上传与收录
 
