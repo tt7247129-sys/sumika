@@ -37,8 +37,18 @@ val Project.Config: BuildConfig get() = object : BuildConfig {
 
     override val uploadCrashlyticsMapping: Boolean = includeTelemetry && (distribution == Distribution.GITHUB)
 
+    /**
+     * Sumika: the self-updater is off for the FOSS distribution.
+     *
+     * F-Droid and IzzyOnDroid both forbid an app downloading and installing
+     * additional executable binaries without explicit opt-in consent, because a
+     * self-updater lets the app swap out the very APK the repository scanned and
+     * signed. Both stores ship their own build of this variant, so the updater
+     * must not exist there. It stays available for the side-loaded standard
+     * build, where the user has no repository to get updates from.
+     */
     override val enableUpdater: Boolean = project.flag("enable-updater")
-        ?: (distribution != Distribution.LOCAL)
+        ?: (distribution != Distribution.LOCAL && distribution != Distribution.FOSS)
 
     override val includeDependencyInfo: Boolean = project.flag("include-dependency-info") ?: false
 

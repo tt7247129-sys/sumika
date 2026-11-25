@@ -134,15 +134,14 @@ android {
 
     packaging {
         jniLibs {
-            keepDebugSymbols += listOf(
-                "libandroidx.graphics.path",
-                "libarchive-jni",
-                "libconscrypt_jni",
-                "libimagedecoder",
-                "libquickjs",
-                "libsqlite3x",
-            )
-                .map { "**/$it.so" }
+            // Sumika: native debug symbols are deliberately not kept.
+            //
+            // Upstream keeps them so Crashlytics can symbolicate native crashes.
+            // Telemetry is hard-disabled in this fork, so nothing ever consumes
+            // those symbols — they only inflate the APK. Dropping them matters
+            // because F-Droid and IzzyOnDroid cap a single APK at 30 MB, and the
+            // arm64 FOSS build was sitting just above that line.
+            keepDebugSymbols += emptyList<String>()
         }
         resources {
             excludes += setOf(
