@@ -4,12 +4,12 @@
 [![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-blue.svg?style=flat-square)](https://www.gnu.org/licenses/gpl-3.0.html)
 [![Fork of Mihon](https://img.shields.io/badge/fork%20of-Mihon-orange.svg?style=flat-square)](https://github.com/mihonapp/mihon)
 [![Languages](https://img.shields.io/badge/languages-50-green.svg?style=flat-square)](#-languages-50)
-[![Privacy](https://img.shields.io/badge/tracking-none-success.svg?style=flat-square)](https://sumika.app/privacy.html)
+[![Privacy](https://img.shields.io/badge/tracking-none-success.svg?style=flat-square)](https://sumikareader.pages.dev/privacy)
 
 **A free, open-source manga, comic and webtoon reader for Android.**
 No ads. No in-app purchases. No subscription. No analytics SDK. No account. Your library never leaves your phone.
 
-Website: [sumika.app](https://sumika.app) · Privacy policy: [sumika.app/privacy.html](https://sumika.app/privacy.html)
+Website: [sumikareader.pages.dev](https://sumikareader.pages.dev) · Privacy policy: [sumikareader.pages.dev/privacy](https://sumikareader.pages.dev/privacy)
 
 ## Why Sumika exists
 
@@ -40,9 +40,10 @@ Website: [sumika.app](https://sumika.app) · Privacy policy: [sumika.app/privacy
 
 | Channel | Link |
 |---|---|
-| GitHub Releases (APK) | [github.com/tt7247129-sys/sumika/releases](https://github.com/tt7247129-sys/sumika/releases) |
-| Website (all channels) | [sumika.app](https://sumika.app) |
+| Official website (APK) | [sumikareader.pages.dev/download](https://sumikareader.pages.dev/download) |
+| GitHub Releases | [github.com/tt7247129-sys/sumika/releases](https://github.com/tt7247129-sys/sumika/releases) |
 | F-Droid | *submission in progress* |
+| IzzyOnDroid | *submission in progress* |
 | Google Play | *planned* |
 
 Sumika is a reader, not a content store. It ships with **no bundled catalogue** — you bring your own sources or your own local files.
