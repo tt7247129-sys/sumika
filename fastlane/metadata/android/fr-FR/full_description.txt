@@ -1,0 +1,25 @@
+Sumika est un lecteur de manga libre et open source pour celles et ceux qui veulent un contrôle total sur leur bibliothèque. Sans publicité. Sans pistage. Sans abonnement.
+
+<b>VOTRE BIBLIOTHÈQUE, VOS RÈGLES</b>
+• Parcourez des centaines de sources communautaires via le système d'extensions, ou lisez vos propres fichiers CBZ/ZIP/CBR
+• Organisez avec catégories, filtres et tri intelligent
+• Les mises à jour automatiques gardent vos séries à jour
+• Sauvegardes portables (compatibles .tachibk) : migrez depuis Tachiyomi ou Mihon en un geste
+
+<b>UN LECTEUR CONÇU POUR LE MANGA</b>
+• Modes de lecture RTL, LTR, vertical continu (webtoon) et paginé
+• Réglages par série : mode de lecture, ajustement des pages, couleur de fond, etc.
+• Téléchargez les chapitres pour une lecture hors ligne complète
+• Interface Material 3 optimisée pour téléphones, tablettes et appareils pliables
+
+<b>LA VIE PRIVÉE D'ABORD</b>
+• Aucun SDK publicitaire ni analytique : la télémétrie est désactivée à la compilation et ne peut être réactivée
+• Registre de confidentialité (Privacy Ledger) : l'activité réseau de l'app est consignée sur l'appareil et consultable à tout moment
+• Mode parental optionnel : contenu sûr uniquement, réglages verrouillés par authentification
+• Sauvegarde vers n'importe quel dossier ou stockage cloud monté, sans compte
+
+<b>SUIVEZ VOS SÉRIES</b>
+• Intégration de suivi avec AniList, MyAnimeList, Kitsu et Shikimori
+• Planifications de mise à jour et notifications par bibliothèque
+
+Sumika est traduit dans plus de 70 langues et distribué sous licence GPL-3.0, développé par des bénévoles. Sumika n'héberge aucun contenu : vous choisissez les sources à installer et êtes responsable de leur utilisation conformément à la loi et aux conditions des éditeurs de votre région.

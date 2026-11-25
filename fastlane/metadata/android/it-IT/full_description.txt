@@ -1,0 +1,23 @@
+Pagare un abbonamento per rileggere capitoli che hai già comprato. Pubblicità che ti porta via dalla pagina a metà lettura. App che caricano la tua libreria su un server altrui.
+
+Sumika è un lettore di manga, fumetti e webtoon gratuito e completamente open source. Nessuna pubblicità. Nessun acquisto in-app. Nessun abbonamento. Nessun SDK di analisi. Nessun account. La tua libreria non lascia mai il telefono.
+
+PERCHE SI CAMBIA
+- I lettori commerciali fanno pagare a capitolo, a ticket o al mese. Sumika non fa pagare nulla, mai.
+- I lettori commerciali possono revocare i download quando smetti di pagare. Sumika salva i capitoli in file che sono tuoi.
+- I lettori commerciali includono tracker. Sumika include un Registro della Privacy che elenca ogni dominio contattato e permette di esportarlo per verificarlo da solo.
+
+COSA OTTIENI
+- Una libreria vera: categorie, filtri, ordinamento, azioni multiple, cronologia e sincronizzazione con MyAnimeList, AniList, Kitsu, Shikimori e Bangumi.
+- Un lettore per sessioni lunghe: cinque modalità di lettura, pagina e webtoon, destra-sinistra e verticale, doppie pagine, filtri colore, zone di tocco e cambio pagina con i tasti del volume.
+- Offline prima di tutto: coda di download, limite di spazio, rimozione automatica dei capitoli già letti e una cartella aperta che puoi copiare o spostare.
+- Migrazione senza account: backup locale cifrato o trasferimento da telefono a telefono sulla tua Wi-Fi. Niente cloud, niente registrazione, niente e-mail.
+- 50 lingue che seguono la lingua di sistema, con specchiatura completa da destra a sinistra per arabo, ebraico, persiano e urdu.
+
+SVILUPPATO ALLA LUCE DEL SOLE
+Sumika è un fork del progetto open source Mihon, distribuito con licenza GPL-3.0. Leggi il codice, compilalo da te o controlla ogni chiamata di rete: https://github.com/tt7247129-sys/sumika
+
+Sumika è un lettore, non un negozio. Non include alcun catalogo: porti le tue fonti o i tuoi file.
+
+Niente pubblicità. Nessun abbonamento. Nessun tracciamento. Solo lettura.
+sumika.app

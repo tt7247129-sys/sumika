@@ -1,0 +1,28 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="432"
+    android:viewportHeight="432">
+  <!-- Sumika mark: an open book seen from above, spine centred -->
+  <path
+      android:pathData="M128,158 L210,184 L210,300 L128,274 Z"
+      android:fillColor="#F4EDE1"/>
+  <path
+      android:pathData="M304,158 L222,184 L222,300 L304,274 Z"
+      android:fillColor="#F4EDE1"/>
+  <path
+      android:pathData="M210,184 L222,184 L222,300 L210,300 Z"
+      android:fillColor="#C9A227"/>
+  <path
+      android:pathData="M150,206 L190,218 L190,231 L150,219 Z"
+      android:fillColor="#7C8B90"/>
+  <path
+      android:pathData="M150,240 L190,252 L190,265 L150,253 Z"
+      android:fillColor="#7C8B90"/>
+  <path
+      android:pathData="M242,218 L282,206 L282,219 L242,231 Z"
+      android:fillColor="#7C8B90"/>
+  <path
+      android:pathData="M242,252 L282,240 L282,253 L242,265 Z"
+      android:fillColor="#7C8B90"/>
+</vector>

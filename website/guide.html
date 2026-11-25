@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Getting started — Sumika</title>
+<meta name="description" content="Sumika quick start guide: add a source, migrate a backup, manage storage and downloads.">
+<link rel="canonical" href="https://sumikareader.pages.dev/guide.html">
+<meta name="theme-color" content="#0E1A1F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230E1A1F'/%3E%3Cpath d='M26 30l20 6v40l-20-6z' fill='%23F4EDE1'/%3E%3Cpath d='M74 30l-20 6v40l20-6z' fill='%23F4EDE1'/%3E%3Cpath d='M48 36h4v40h-4z' fill='%23C9A227'/%3E%3C/svg%3E">
+<style>
+:root{--ink:#0E1A1F;--ink-2:#12242B;--paper:#F4EDE1;--gold:#C9A227;--mint:#8FD6C7;--rule:rgba(244,237,225,.12);--max:840px}
+*{box-sizing:border-box}body{margin:0;background:var(--ink);color:var(--paper);font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.wrap{max-width:var(--max);margin:0 auto;padding:48px 22px 96px}a{color:var(--mint)}h1{font-size:2.2rem;margin:0 0 8px;letter-spacing:-.02em}h2{font-size:1.35rem;margin:40px 0 10px;color:var(--gold-bright,#E9CE8C)}p,li{color:#d8d3c9}.lead{font-size:1.1rem;color:#b8c4c0;margin-bottom:32px}
+.card{border:1px solid var(--rule);background:var(--ink-2);border-radius:14px;padding:18px 22px;margin:16px 0}code{background:#1d3138;padding:2px 6px;border-radius:4px;color:var(--mint)}
+nav{margin-top:40px;padding-top:20px;border-top:1px solid var(--rule)}nav a{margin-right:18px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Sumika 快速上手</h1>
+<p class="lead">Sumika 是一个阅读器，不带任何书库或内容源。你用自己喜欢的漫画源或本地文件来填充书架——这也是它无广告、无追踪的原因。</p>
+
+<h2>1. 进入书架</h2>
+<p>首次启动会引导你选择存储目录。选一个专用文件夹用于存放章节下载和备份。之后随时可在 <strong>Settings → Data and storage</strong> 更改。</p>
+
+<h2>2. 添加内容源</h2>
+<p>进入 <strong>Browse → Sources</strong>，安装你需要的社区扩展。Sumika 兼容 Mihon/Tachiyomi 生态的扩展格式，并按语言自动过滤。想快速起步？直接把漫画图片或压缩包放进你的文件夹，用 <strong>Local source</strong> 阅读即可——零配置。</p>
+
+<h2>3. 从旧阅读器迁移</h2>
+<p>如果你在用 Tachiyomi / Mihon：先在那边导出 <code>.tachibk</code> 备份，然后在 Sumika 打开 <strong>Settings → Data → Restore backup</strong> 选择该文件。书架、阅读进度和分类会一并导入。</p>
+
+<h2>4. 下载与离线阅读</h2>
+<p>在漫画详情页点击下载按钮即可缓存章节。<strong>Settings → Data and storage</strong> 里可设置存储预算，避免占用过多空间。下载内容完全保存在本机。</p>
+
+<h2>5. 隐私与家长模式</h2>
+<div class="card">
+<p><strong>Privacy Ledger（隐私台账）</strong>：在 <strong>Settings → Privacy Ledger</strong> 可查看应用实际访问过的每一个网络域名、次数和时间戳，并可导出 CSV。遥测在构建层硬关闭。</p>
+<p><strong>家长模式</strong>：在 <strong>Settings → Browse</strong> 开启后强制仅显示 SAFE 内容，并用 PIN / 生物识别锁定。</p>
+</div>
+
+<h2>6. 阅读器手势</h2>
+<p>阅读器提供多种模式（分页、竖滑、RTL 等），点击屏幕中央唤出工具栏。工具栏上的翻译按钮可调用端侧 AI 翻译，首次使用会下载离线模型，全程不上传图片。</p>
+
+<h2>需要更多帮助？</h2>
+<p>在 <a href="https://github.com/tt7247129-sys/sumika/issues">GitHub Issues</a> 提问，或阅读 <a href="privacy.html">隐私政策</a>。开源意味着你可以直接查看代码验证一切。</p>
+
+<nav>
+<a href="index.html">← 首页</a>
+<a href="privacy.html">隐私政策</a>
+<a href="https://github.com/tt7247129-sys/sumika">源码</a>
+</nav>
+</div>
+</body>
+</html>

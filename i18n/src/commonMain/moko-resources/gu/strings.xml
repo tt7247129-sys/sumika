@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+      Gujarati (ગુજરાતી) seed translation.
+      Ships so the locale is selectable in Android 13 per-app language settings.
+      Unlisted keys fall back to English. Community PRs welcome.
+    -->
+    <string name="name">નામ</string>
+    <string name="categories">શ્રેણીઓ</string>
+    <string name="chapters">પ્રકરણો</string>
+    <string name="history">ઇતિહાસ</string>
+    <string name="label_more">વધુ</string>
+    <string name="label_settings">સેટિંગ્સ</string>
+    <string name="label_library">લાઇબ્રેરી</string>
+    <string name="label_recent_updates">અપડેટ્સ</string>
+    <string name="label_recent_manga">ઇતિહાસ</string>
+    <string name="label_sources">સ્રોત</string>
+    <string name="label_stats">આંકડા</string>
+    <string name="action_cancel">રદ કરો</string>
+    <string name="action_ok">ઠીક છે</string>
+    <string name="action_save">સાચવો</string>
+    <string name="action_delete">કાઢી નાખો</string>
+    <string name="action_search">શોધો</string>
+
+    <string name="pref_privacy_ledger">ગોપનીયતા લેજર</string>
+    <string name="pref_privacy_ledger_summary">આ એપ્લિકેશન જે દરેક ડોમેન સાથે સંપર્ક કરે છે, તે તમારા ફોન પર નોંધાય છે</string>
+    <string name="privacy_ledger_intro">બીજા રીડર તમને તેમના પર ભરોસો રાખવા કહે છે. આ પૃષ્ઠ તમને ચકાસવા દે છે. સુમિકા જે દરેક નેટવર્ક હોસ્ટ સાથે સંપર્ક કરે છે તે નીચે સૂચિબદ્ધ છે, અને અહીંથી કંઈ પણ તમારા ફોનની બહાર જતું નથી.</string>
+    <string name="privacy_ledger_empty">આ સત્રમાં હજી કોઈ નેટવર્ક વિનંતી નોંધાઈ નથી.</string>
+    <string name="privacy_ledger_action_copy">રિપોર્ટ કૉપી કરો</string>
+    <string name="privacy_ledger_action_clear">સાફ કરો</string>
+    <string name="privacy_ledger_copied">રિપોર્ટ ક્લિપબોર્ડ પર કૉપી થયો</string>
+    <string name="privacy_ledger_tracker_row">જાણીતું ટ્રેકર</string>
+    <string name="privacy_ledger_footnote">ફક્ત હોસ્ટ નામો સંગ્રહિત થાય છે. કોઈ URL નહીં, કોઈ પૃષ્ઠ સામગ્રી નહીં, કોઈ ખાતાનો ડેટા નહીં.</string>
+</resources>
