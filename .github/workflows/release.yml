@@ -34,7 +34,9 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v4
         with:
-          java-version: 17
+          # Follow the project standard (.github/.java-version = 21).
+          # Metro's gradle-plugin 1.6.0 requires JVM 21+; JDK 17 fails to resolve it.
+          java-version-file: .github/.java-version
           distribution: temurin
 
       - name: Set up Gradle

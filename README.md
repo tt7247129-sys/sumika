@@ -3,7 +3,7 @@
 [![Release](https://img.shields.io/github/v/release/tt7247129-sys/sumika?style=flat-square)](https://github.com/tt7247129-sys/sumika/releases)
 [![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-blue.svg?style=flat-square)](https://www.gnu.org/licenses/gpl-3.0.html)
 [![Fork of Mihon](https://img.shields.io/badge/fork%20of-Mihon-orange.svg?style=flat-square)](https://github.com/mihonapp/mihon)
-[![Languages](https://img.shields.io/badge/languages-50-green.svg?style=flat-square)](#-languages-50)
+[![Languages](https://img.shields.io/badge/languages-70%2B-green.svg?style=flat-square)](#-languages-70%2B)
 [![Privacy](https://img.shields.io/badge/tracking-none-success.svg?style=flat-square)](https://sumikareader.pages.dev/privacy)
 
 **A free, open-source manga, comic and webtoon reader for Android.**
@@ -30,11 +30,11 @@ Website: [sumikareader.pages.dev](https://sumikareader.pages.dev) · Privacy pol
 - **A reader built for long sessions** — 5 reading modes, page & webtoon, right-to-left and vertical, double-page spreads, custom color filters, tap zones, volume-key paging.
 - **Offline first** — download queue, storage budget cap, auto-eviction of finished chapters, everything in an open folder you can back up or move.
 - **Migration without an account** — encrypted local backup, or phone-to-phone transfer over your own Wi-Fi.
-- **50 languages** — full right-to-left mirroring for Arabic, Hebrew, Persian and Urdu.
+- **70+ languages** — full right-to-left mirroring for Arabic, Hebrew, Persian and Urdu.
 
-## Languages (50)
+## Languages (70+)
 
-العربية · български · català · čeština · dansk · Deutsch · Ελληνικά · English · español · فارسی · suomi · français · हिंदी · hrvatski · magyar · Indonesia · italiano · עברית · 日本語 · 한국어 · polski · português · română · русский · српски · svenska · ไทย · Türkçe · українська · Tiếng Việt · 简体中文 · 繁體中文 … and 18 more.
+العربية · български · català · čeština · dansk · Deutsch · Ελληνικά · English · español · فارسی · suomi · français · हिंदी · hrvatski · magyar · Indonesia · italiano · עברית · 日本語 · 한국어 · polski · português · română · русский · српски · svenska · ไทย · Türkçe · українська · Tiếng Việt · 简体中文 · 繁體中文 … and 40 more.
 
 ## Download
 
