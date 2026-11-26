@@ -50,10 +50,17 @@ Sumika is a reader, not a content store. It ships with **no bundled catalogue** 
 
 ## Building from source
 
-Requirements: JDK 17, Android SDK (compileSdk 37). Then:
+Requirements: **JDK 21** (see `.github/.java-version`; the Metro compiler plugin
+requires 21+), Android SDK (compileSdk 37). Then:
 
 ```bash
 ./gradlew :app:assembleRelease -Pdist=github
+```
+
+To build the FOSS variant without the proprietary ML Kit translation dependency:
+
+```bash
+./gradlew :app:assembleFoss -Pdist=foss
 ```
 
 ## Credits & licensing
@@ -65,6 +72,8 @@ This project is licensed under the **GNU GPL-3.0**. See [LICENSE](LICENSE) and [
 ## Contributing
 
 Bug reports, translations and PRs are welcome. Please read the upstream [Mihon contributing guide](https://github.com/mihonapp/mihon/blob/main/.github/CONTRIBUTING.md) — most of it applies here.
+
+Found a security problem, especially something that breaks the no-tracking promise? Please use the private disclosure path in [SECURITY.md](SECURITY.md) instead of a public issue.
 
 ## Tags
 
