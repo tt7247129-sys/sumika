@@ -129,9 +129,20 @@ IzzyOnDroid 从 GitHub Release 抓取 APK，需要 Release 中存在**不含专�
 
 **关键政策原文**：*"The app must not download additional executable binary files (e.g. addons, auto-updates, etc.) without explicit user consent."* —— 自更新器会让应用替换掉仓库已扫描并签名的 APK，因此必须移除（我们选择在 FOSS 变体中整体关闭，而非做 opt-in 提示，更简单也更符合审计预期）。
 
-**提交方式**：不是网页表单，而是在 **GitLab issue 追踪器**提交
-→ https://gitlab.com/IzzyOnDroid/repo/-/issues（需要 GitLab 账号）
-早前流传的 `apt.izzysoft.de/...?submission=1` 表单已不适用。
+**提交方式（2026-11 核实）**：IzzyOnDroid 已把最后的仓库从 GitLab 迁到 **Codeberg**，
+新申请必须提交到：
+
+→ **https://codeberg.org/IzzyOnDroid/repodata/issues/new**
+→ 模板：`App Inclusion Request`（自动打上 `app-request` 与 `needs/llm-check` 标签）
+
+注意：
+- 早前的 `gitlab.com/IzzyOnDroid/repo/-/issues` 已停止接收新申请；
+  `apt.izzysoft.de/...?submission=1` 网页表单早已不适用。
+- 官方说明"we do not offer any accounts: none are needed"指的是**使用仓库**无需账号；
+  在 Codeberg 提 issue 仍需 Codeberg 账号。
+- 模板**强制要求填写 AI 辅助程度**（`Assistance Level`），且政策明确
+  "Vibe-coded apps will be rejected"、Dominant 级别会被拒。必须如实填写——
+  写好的完整草稿见仓库根目录 `IZZYONDROID_SUBMISSION.md`，该字段留空由开发者本人决定。
 
 ### 2.0.1 体积（30 MB 上限）
 
